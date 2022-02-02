@@ -1,0 +1,84 @@
+.y-new-graph {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  // Overview (minimap)
+  .y-overview-component {
+    box-shadow: none !important;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    left: auto;
+    top: auto;
+    width: 200px;
+    height: 200px;
+    margin: 0;
+    z-index: 10;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    border-radius: 10px;
+
+    .yfiles-canvascomponent {
+      flex: 1;
+    }
+  }
+
+  // Main graph container
+  .y-graph-container {
+    flex: 1;
+    .yfiles-canvascomponent {
+      flex: 1;
+      background: rgb(11, 31, 47);
+
+      // Labels and texts
+      text {
+        color: #fff !important;
+        fill: #fff !important;
+        transition: 1s;
+      }
+
+      // Edges
+      path[stroke-width='3.03'] {
+        stroke: rgba(135, 206, 234, 0.3);
+        stroke-opacity: 1;
+      }
+
+      // Nodes
+      .y-node-container {
+        .y-node-content {
+          text-anchor: start;
+        }
+        .y-node {
+          position: relative;
+          stroke: var(--ds-dark-50);
+          stroke-width: 2;
+          stroke-opacity: 1;
+          fill: #09131DFF;
+          fill-opacity: var(--main-node-opacity);
+          rx: 0;
+          ry: 0;
+        }
+        .y-node-text {
+          font-size: 16px;
+          font-family: 'Roboto';
+          color: #fff !important;
+          fill: #fff !important;
+          transition: 1s;
+        }
+      }
+
+      // Ports
+      .y-node-port {
+        .y-node-port-icon {
+          fill: #2f5266;
+        }
+        .y-node-port-label {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

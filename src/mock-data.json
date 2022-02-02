@@ -1,0 +1,111 @@
+{
+  "modules":[
+    {
+      "id":"transform-module",
+      "name":"Data Management",
+      "inputs":[],
+      "outputs":[
+        "output"
+      ]
+    },
+    {
+      "id":"transform-module-0",
+      "name":"SQL",
+      "inputs":[
+        "input",
+        "input10",
+        "input11",
+        "input12",
+        "input13",
+        "input14",
+        "input15",
+        "input16",
+        "input17",
+        "input18",
+        "input19"
+      ],
+      "outputs":[
+        "output"
+      ]
+    },
+    {
+      "id":"ingest-module-1",
+      "name":"CSV Reader 1",
+      "inputs":[
+
+      ],
+      "outputs":[
+        "output"
+      ]
+    },
+    {
+      "id":"ingest-module",
+      "name":"CSV Reader 2",
+      "inputs":[
+
+      ],
+      "outputs":[
+        "output"
+      ]
+    },
+    {
+      "id":"ingest-module-0",
+      "name":"CSV Reader 3",
+      "inputs":[
+
+      ],
+      "outputs":[
+        "output"
+      ]
+    },
+    {
+      "id":"transform-module-1",
+      "name":"Python",
+      "inputs":[
+        "input"
+      ],
+      "outputs":[
+        "output"
+      ]
+    },
+    {
+      "id":"outgest-module",
+      "name":"CSV Writer",
+      "inputs":[
+        "input"
+      ],
+      "outputs":[
+      ]
+    }],
+  "channels":
+    [{
+      "id":"channel004",
+      "to":"transform-module-0/inputs/input",
+      "from":"transform-module/outputs/output"
+    },
+    {
+      "id":"channel001",
+      "to":"transform-module-0/inputs/input10",
+      "from":"ingest-module/outputs/output"
+    },
+    {
+      "id":"channel002",
+      "to":"transform-module-0/inputs/input11",
+      "from":"ingest-module-0/outputs/output"
+    },
+    {
+      "id":"channel003",
+      "to":"transform-module-0/inputs/input12",
+      "from":"ingest-module-1/outputs/output"
+    },
+    {
+      "id":"channel005",
+      "to":"transform-module-1/inputs/input",
+      "from":"transform-module-0/outputs/output"
+    },
+    {
+      "id":"channel006",
+      "to":"outgest-module/inputs/input",
+      "from":"transform-module-1/outputs/output"
+    }]
+}
